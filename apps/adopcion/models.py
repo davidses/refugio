@@ -14,3 +14,8 @@ class Persona(models.Model):
     def __str__(self):
         return "{} {}".format(self.nombre, self.apellido) 
         
+
+class Solicitud(models.Model):
+    persona = models.ForeignKey(Persona, null=False , blank=True, on_delete=models.CASCADE)
+    numero_mascota = models.IntegerField()
+    razones = models.TextField()
